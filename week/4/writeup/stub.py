@@ -1,5 +1,6 @@
 import socket
 import time
+import sys
 
 host = "wattsamp.net" # IP address here
 port = 1337 # Port here
@@ -52,18 +53,22 @@ if __name__ == '__main__':
     pm = "shell Drop into an interactive shell and allow users to gracefully exit\npull <remote-path> <local-path> Download files\nhelp Shows this help menu\nquit Quit the shell"
     print(pm)
 
+    sys.stdout.write(">") 
+
     arg = raw_input()
 
-    while arg != "quit":
+    while arg != "quit": 
+
         text = arg.split()
         
         if arg != "shell" and text[0] != "pull" and arg != "quit":
             print(pm)
+            sys.stdout.write(">")
             arg = raw_input()
 
         if arg == "shell":
             prev_i = "/"
-            print(prev_i + ">")
+            sys.stdout.write(prev_i + ">") 
             prev = prev_i
 
             while arg != "quit":
@@ -72,15 +77,16 @@ if __name__ == '__main__':
 
                 if text[0] == "cd" and len(text) == 1:
                     prev = prev_i
-                    print (prev + ">")
+                    sys.stdout.write(prev + ">") 
                 
                 elif text[0] == "cd" and len(text) == 2:
+
                     prev = prev + "/" + text[1]
-                    print (prev + ">")
+                    sys.stdout.write(prev + ">") 
                     
                 elif text[0] != "quit":
                     execute_cmd("cd " + prev + "; " + text[0])
-                    print (prev + ">")
+                    sys.stdout.write(prev + ">") 
 
             arg = "hey TAs :3"
  
