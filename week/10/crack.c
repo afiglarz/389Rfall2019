@@ -19,6 +19,8 @@ int cracker(unsigned char key[]) {
   int a;
   int b;
   int c;
+  
+  //  char* nullbyte = '\0';
 
   unsigned char gen_hash[4];
   unsigned char* t;
