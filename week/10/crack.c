@@ -20,16 +20,14 @@ int cracker(unsigned char key[]) {
   int b;
   int c;
   
-  //  char* nullbyte = '\0';
-
   unsigned char gen_hash[4];
   unsigned char* t;
   unsigned char* final_hash;
 
   // Bruteforce check of every number combination for 3 bytes
-  for (a = 0; a < 256; a++) {
-    for (b = 0; b < 256; b++) {
-      for (c = 0; c < 256; c++) {
+  for (a = 0; a < 64; a++) {
+    for (b = 0; b < 64; b++) {
+      for (c = 0; c < 32; c++) {
 
 	// Setting values to the generated hash need a nullbyte so that
 	// Its treated as a legit string
